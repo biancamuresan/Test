@@ -1,2 +1,21 @@
 # Test
-Testing the first repos
+--Testing the first repos
+
+-- SELECT ... BULK COLLECT INTO
+
+SET SERVEROUTPUT 
+CLEAR SCREEN;
+
+DECLARE
+    TYPE t_fname IS TABLE OF PAULA.EMPLOYEE.FNAME%TYPE;
+    fname1 t_fname;
+BEGIN
+  
+  SELECT FNAME BULK COLLECT INTO fname1
+  FROM PAULA.EMPLOYEE;
+  
+  FOR i IN 1..fname1.COUNT 
+  LOOP
+   DBMS_OUTPUT.PUT_LINE(i || ' -  ' || fname1(i) );
+  END LOOP; 
+END;

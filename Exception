@@ -23,6 +23,7 @@ BEGIN
   
     n_salary := loop_emp.SALARY;
     v_fname := loop_emp.FNAME;
+    DBMS_OUTPUT.PUT_LINE('Employee ' || v_fname || ' has salary ' || n_salary);
     
     IF n_salary < min_salary THEN
       RAISE BELOW_SALARY_RANGE;
